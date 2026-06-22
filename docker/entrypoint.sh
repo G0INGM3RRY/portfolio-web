@@ -6,6 +6,13 @@ PORT="${PORT:-10000}"
 sed -i "s/Listen .*/Listen ${PORT}/" /etc/apache2/ports.conf
 sed -i "s/<VirtualHost \*:.*/<VirtualHost *:${PORT}>/" /etc/apache2/sites-available/000-default.conf
 
+rm -f public/hot
+
+if [ ! -f public/build/manifest.json ]; then
+    echo "Vite build manifest is missing. Run npm run build during the Docker build." >&2
+    exit 1
+fi
+
 if [ -n "${APP_KEY:-}" ]; then
     php artisan config:cache --no-interaction || true
     php artisan route:cache --no-interaction || true
