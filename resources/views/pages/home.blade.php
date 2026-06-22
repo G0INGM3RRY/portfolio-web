@@ -36,7 +36,7 @@
 
             <div class="relative z-10 mx-auto w-full max-w-sm animate-fade-up lg:max-w-md" style="animation-delay: 120ms;">
                 <div class="relative rounded-lg bg-slate-950 p-3 shadow-2xl shadow-slate-950/20 dark:bg-white/10">
-                    <img src="{{ asset('images\Oraller_Gerald_BSIT4B.jpeg') }}" alt="{{ $profile['name'] }} profile picture" class="aspect-[4/5] w-full rounded-md object-cover">
+                    <img src="{{ asset('images/Oraller_Gerald_BSIT4B.jpeg') }}" alt="{{ $profile['name'] }} profile picture" class="aspect-[4/5] w-full rounded-md object-cover">
                     <div class="absolute -bottom-5 left-6 rounded-lg bg-white px-5 py-3 shadow-xl dark:bg-slate-900">
                         <p class="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Location</p>
                         <p class="mt-1 text-sm font-bold text-slate-950 dark:text-white">{{ $profile['location'] }}</p>
