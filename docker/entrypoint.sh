@@ -7,6 +7,13 @@ sed -i "s/Listen .*/Listen ${PORT}/" /etc/apache2/ports.conf
 sed -i "s/<VirtualHost \*:.*/<VirtualHost *:${PORT}>/" /etc/apache2/sites-available/000-default.conf
 
 rm -f public/hot
+# Install Node
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get install -y nodejs
+
+# Install frontend dependencies and build assets
+RUN npm install
+RUN npm run build
 
 if [ ! -f public/build/manifest.json ]; then
     echo "Vite build manifest is missing. Run npm run build during the Docker build." >&2
